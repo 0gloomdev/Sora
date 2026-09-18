@@ -205,11 +205,32 @@ struct SettingsViewGeneral: View {
                             icon: "inset.filled.bottomthird.rectangle",
                             title: NSLocalizedString("Use Native Tab Bar", comment: ""),
                             isOn: $useNativeTabBar,
+                            showDivider: true
+                        )
+
+                        SettingsPickerRow(
+                            icon: "sparkles",
+                            title: NSLocalizedString("Glass Theme", comment: ""),
+                            options: [GlassTheme.system, .regular, .clear, .classic],
+                            optionToString: { theme in
+                                switch theme {
+                                case .system: return NSLocalizedString("System", comment: "")
+                                case .regular: return NSLocalizedString("Liquid Regular", comment: "")
+                                case .clear: return NSLocalizedString("Liquid Clear", comment: "")
+                                case .classic: return NSLocalizedString("Classic", comment: "")
+                                }
+                            },
+                            selection: $settings.glassTheme,
                             showDivider: false
                         )
                     }
                 }
-                
+
+                Text("Personalización por Gloom_dev")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+
                 SettingsSection(title: NSLocalizedString("Language", comment: "")) {
                     SettingsPickerRow(
                         icon: "globe",

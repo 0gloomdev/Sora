@@ -221,17 +221,15 @@ struct DownloadView: View {
     private func playAsset(_ asset: DownloadedAsset) {
         guard jsController.verifyAssetFileExists(asset) else { return }
         
-        let streamType = asset.localURL.pathExtension.lowercased() == "mp4" ? "mp4" : "hls"
-        
         let dummyMetadata = ModuleMetadata(
             sourceName: "",
-            author: ModuleMetadata.Author(name: "", icon: ""),
+            author: Author(name: "", icon: ""),
             iconUrl: "",
             version: "",
             language: "",
             baseUrl: "",
-            streamType: streamType,
-            quality: "",
+            streamType: (asset.localURL.pathExtension.lowercased() == "mp4" ? .mp4 : .hls),
+            quality: .unknown,
             searchBaseUrl: "",
             scriptUrl: "",
             asyncJS: nil,

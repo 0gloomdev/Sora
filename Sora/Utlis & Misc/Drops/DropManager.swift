@@ -66,7 +66,14 @@ class DropManager {
     }
     
     func downloadStarted(episodeNumber: Int) {
-        let willStartImmediately = JSController.shared.willDownloadStartImmediately()
+        // JSController is MainActor-isolated: hop to main without deadlocking.
+        guard Thread.isMainThread else {
+            DispatchQueue.main.async { [weak self] in self?.downloadStarted(episodeNumber: episodeNumber) }
+            return
+        }
+        let willStartImmediately = MainActor.assumeIsolated {
+            JSController.shared.willDownloadStartImmediately()
+        }
         
         let message = willStartImmediately 
             ? "Episode \(episodeNumber) is now downloading"

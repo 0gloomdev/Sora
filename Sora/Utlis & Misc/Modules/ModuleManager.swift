@@ -270,7 +270,9 @@ class ModuleManager: ObservableObject {
         guard !overrides.isEmpty else { return }
         
         for (key, value) in overrides {
-            let pattern = #"^(\s*)const\s+\#(key)\s*=\s*.*?;(.*)$"#
+            // NOTE: \# would escape interpolation and match literally; build the
+            // pattern with concatenation so the real key is embedded (escaped).
+            let pattern = "^(\\s*)const\\s+" + NSRegularExpression.escapedPattern(for: key) + "\\s*=\\s*.*?;(.*)$"
             let regex = try NSRegularExpression(pattern: pattern, options: .anchorsMatchLines)
             let range = NSRange(location: 0, length: content.utf16.count)
             let newLine = "$1const \(key) = \(formatForJS(value));$2"
@@ -285,7 +287,11 @@ class ModuleManager: ObservableObject {
         if let _ = Double(value) { return value }
         if value.lowercased() == "true" || value.lowercased() == "false" { return value.lowercased() }
         
-        let escaped = value.replacingOccurrences(of: "\\", with: "\\\\").replacingOccurrences(of: "\"", with: "\\\"")
+        let escaped = value
+            .replacingOccurrences(of: "\\", with: "\\\\")
+            .replacingOccurrences(of: "\"", with: "\\\"")
+            // Escape $ for NSRegularExpression replacement templates ($$ = literal $).
+            .replacingOccurrences(of: "$", with: "$$")
         return "\"\(escaped)\""
     }
 }

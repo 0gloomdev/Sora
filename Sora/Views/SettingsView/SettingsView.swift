@@ -387,6 +387,11 @@ class Settings: ObservableObject {
             updateAppearance()
         }
     }
+    @Published var glassTheme: GlassTheme {
+        didSet {
+            UserDefaults.standard.set(glassTheme.rawValue, forKey: "glassTheme")
+        }
+    }
     @Published var selectedLanguage: String {
         didSet {
             UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
@@ -401,6 +406,12 @@ class Settings: ObservableObject {
             self.selectedAppearance = appearance
         } else {
             self.selectedAppearance = .system
+        }
+        if let glassRawValue = UserDefaults.standard.string(forKey: "glassTheme"),
+           let glass = GlassTheme(rawValue: glassRawValue) {
+            self.glassTheme = glass
+        } else {
+            self.glassTheme = .system
         }
         self.selectedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "English"
         updateAppearance()

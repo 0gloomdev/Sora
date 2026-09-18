@@ -129,13 +129,13 @@ struct ModuleAdditionSettingsView: View {
                                     HStack(spacing: 0) {
                                         FancyInfoTile(icon: "globe", label: "Language", value: metadata.language)
                                         Divider().frame(height: 44)
-                                        FancyInfoTile(icon: "film", label: "Type", value: metadata.type ?? "-")
+                                        FancyInfoTile(icon: "film", label: "Type", value: metadata.type?.rawValue ?? "-")
                                     }
                                     Divider()
                                     HStack(spacing: 0) {
-                                        FancyInfoTile(icon: "arrow.down.circle", label: "Quality", value: metadata.quality)
+                                        FancyInfoTile(icon: "arrow.down.circle", label: "Quality", value: metadata.quality.rawValue)
                                         Divider().frame(height: 44)
-                                        FancyInfoTile(icon: "waveform", label: "Stream", value: metadata.streamType)
+                                        FancyInfoTile(icon: "waveform", label: "Stream", value: metadata.streamType.rawValue)
                                     }
                                     Divider()
                                     HStack(spacing: 0) {

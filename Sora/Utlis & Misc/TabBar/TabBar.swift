@@ -39,6 +39,7 @@ extension Color {
 struct TabBar: View {
     var tabs: [TabItem]
     @Binding var selectedTab: Int
+    @AppStorage("glassTheme") private var glassTheme: GlassTheme = .system
     @State private var lastTab: Int = 0
     @State private var showSearch: Bool = false
     @State private var searchQuery: String = ""
@@ -90,7 +91,7 @@ struct TabBar: View {
                         .padding(16)
                         .background(
                             Circle()
-                                .fill(.ultraThinMaterial)
+                                .adaptiveGlass(glassTheme, in: Circle())
                                 .overlay(
                                     Circle()
                                         .stroke(
@@ -255,10 +256,8 @@ struct TabBar: View {
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
-            .background(
-                Capsule()
-                    .fill(.ultraThinMaterial)
-            )
+            .adaptiveGlass(glassTheme, in: Capsule())
+            .glassCluster(enabled: glassTheme != .classic)
             .clipShape(Capsule())
             .overlay(
                 Capsule()

@@ -319,6 +319,7 @@ struct SettingsViewBackup: View {
             "sendPushUpdates",
             "sendTraktUpdates",
             "selectedAppearance",
+            "glassTheme",
             "selectedLanguage",
             "metadataProvidersOrder",
             "chapterChunkSize",

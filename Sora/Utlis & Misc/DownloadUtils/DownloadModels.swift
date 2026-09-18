@@ -116,8 +116,14 @@ struct DownloadedAsset: Identifiable, Codable, Equatable {
     
     /// Check if this asset is currently being downloaded
     public func isCurrentlyBeingDownloaded() -> Bool {
+        // JSController is MainActor-isolated: hop to main without deadlocking.
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.sync { self.isCurrentlyBeingDownloaded() }
+        }
         // Access JSController to check active downloads
-        let activeDownloads = JSController.shared.activeDownloads
+        let activeDownloads = MainActor.assumeIsolated {
+            JSController.shared.activeDownloads
+        }
         
         // Check if any active download matches this asset's path
         for download in activeDownloads {

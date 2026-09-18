@@ -42,7 +42,7 @@ extension JSController {
         totalEpisodes: Int? = nil,
         completionHandler: ((Bool, String) -> Void)? = nil
     ) {
-        let streamType = module.metadata.streamType.lowercased()
+        let streamType = module.metadata.streamType.rawValue.lowercased()
         
         if streamType == "hls" || streamType == "m3u8" || url.absoluteString.contains(".m3u8") {
             Logger.shared.log("Using HLS download method", type: "Download")

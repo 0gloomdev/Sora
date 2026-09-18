@@ -82,7 +82,7 @@ Translators:
 This project is licensed under the [GNU General Public License v3.0](LICENSE) (GPLv3.0).
 
 ```
-Copyright © 2024-2026 cranci. All rights reserved.
+Copyright © 2024-2026 gloom_dev. All rights reserved.
 
 Sora is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -50,7 +50,7 @@ class M3U8StreamExtractor {
     ///   - preferredQuality: User's preferred quality ("Best", "High", "Medium", "Low")
     ///   - jsController: Optional reference to the JSController for header management
     ///   - completion: Completion handler with the result containing the selected stream URL and headers
-    static func extractStreamURL(
+    @MainActor static func extractStreamURL(
         from masterURL: URL,
         headers: [String: String],
         preferredQuality: String,
