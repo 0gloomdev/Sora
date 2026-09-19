@@ -306,6 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA38A477E364C96A2946774 /* Sulfur in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1241,6 +1242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5491BBF45AEC424D915C8848 /* SoraEngineTests.swift in Sources */,
+				6A2C03AD316042839BC7B244 /* ModuleCacheManagerTests.swift in Sources */,
+				6A2C03AD316042839BC7B244 /* ModuleCacheManagerTests.swift in Sources */,
+				E19D61B43B048C12F7DF6529 /* ModuleCacheManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1594,7 +1598,9 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				DEFINES_MODULE = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				DEFINES_MODULE = YES;
 			};
 			name = Debug;
 		};
@@ -1636,6 +1642,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				DEFINES_MODULE = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1654,6 +1661,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				DEFINES_MODULE = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sulfur.app/Sulfur";
 			};
@@ -1672,6 +1680,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				DEFINES_MODULE = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sulfur.app/Sulfur";
 			};

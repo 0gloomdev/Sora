@@ -74,6 +74,7 @@ public struct Author: Codable, Hashable, Sendable {
 }
 
 public struct ModuleMetadata: Codable, Hashable, Sendable {
+    public let id: UUID
     public let sourceName: String
     public let author: Author
     public let iconUrl: String
@@ -100,6 +101,7 @@ public struct ModuleMetadata: Codable, Hashable, Sendable {
     }
 
     public init(
+        id: UUID = UUID(),
         sourceName: String,
         author: Author,
         iconUrl: String,
@@ -118,6 +120,7 @@ public struct ModuleMetadata: Codable, Hashable, Sendable {
         type: ModuleType? = nil,
         novel: Bool? = nil
     ) {
+        self.id = id
         self.sourceName = sourceName
         self.author = author
         self.iconUrl = iconUrl
@@ -138,6 +141,7 @@ public struct ModuleMetadata: Codable, Hashable, Sendable {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case id
         case sourceName
         case author
         case iconUrl
@@ -159,6 +163,7 @@ public struct ModuleMetadata: Codable, Hashable, Sendable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(UUID.self, forKey: .id)
         self.sourceName = try container.decode(String.self, forKey: .sourceName)
         self.author = try container.decode(Author.self, forKey: .author)
         self.iconUrl = try container.decode(String.self, forKey: .iconUrl)
@@ -192,6 +197,7 @@ public struct ModuleMetadata: Codable, Hashable, Sendable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
         try container.encode(sourceName, forKey: .sourceName)
         try container.encode(author, forKey: .author)
         try container.encode(iconUrl, forKey: .iconUrl)
