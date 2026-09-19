@@ -1,0 +1,13 @@
+{
+  "name": "Sora Private Module Catalog",
+  "lastUpdated": 1792416000,
+  "modules": [
+    {
+      "id": "torrentio-stream-scraper",
+      "name": "Torrentio",
+      "version": "1.0.0",
+      "status": "active",
+      "scriptUrl": "https://githubusercontent.com"
+    }
+  ]
+}
