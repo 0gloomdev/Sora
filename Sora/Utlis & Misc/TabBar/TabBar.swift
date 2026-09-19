@@ -214,7 +214,7 @@ struct TabBar: View {
                                                         previousDragOffset = 0
                                                         lastUpdateTime = Date()
                                                         lastDragTranslation = 0
-                                                        let totalWidth = tabWidth * CGFloat(tabs.count)
+                                                        _ = tabWidth * CGFloat(tabs.count)
                                                         let startX = CGFloat(selectedTab) * tabWidth
                                                         let newOffset = startX + value.translation.width
                                                         let target = dragTargetIndex(selectedTab: selectedTab, dragOffset: newOffset, tabCount: tabs.count, tabWidth: tabWidth)

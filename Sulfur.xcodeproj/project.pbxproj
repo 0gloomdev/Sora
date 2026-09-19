@@ -26,7 +26,6 @@
 		04536F742E04BA5600A11248 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04536F722E04BA5600A11248 /* ReaderView.swift */; };
 		04536F772E04BA6900A11248 /* ChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04536F752E04BA6900A11248 /* ChapterCell.swift */; };
 		0457C5972DE7712A000AFBD9 /* DeviceScaleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457C5942DE7712A000AFBD9 /* DeviceScaleModifier.swift */; };
-		CCE115659AC44276A5D3C28E /* GlassDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366345F84A054F5F90BA5B57 /* GlassDesign.swift */; };
 		0457C59D2DE78267000AFBD9 /* BookmarkGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457C59A2DE78267000AFBD9 /* BookmarkGridView.swift */; };
 		0457C59E2DE78267000AFBD9 /* BookmarkLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457C59B2DE78267000AFBD9 /* BookmarkLink.swift */; };
 		0457C59F2DE78267000AFBD9 /* BookmarkGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457C5992DE78267000AFBD9 /* BookmarkGridItemView.swift */; };
@@ -122,6 +121,7 @@
 		1EAC7A322D888BC50083984D /* MusicProgressSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7A312D888BC50083984D /* MusicProgressSlider.swift */; };
 		1EDA48F42DFAC374002A4EC3 /* TMDBMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA48F32DFAC374002A4EC3 /* TMDBMatchView.swift */; };
 		1EF5C3A92DB988E40032BF07 /* CommunityLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5C3A82DB988D70032BF07 /* CommunityLib.swift */; };
+		2BA49E5BF47B4DB59781FF81 /* NovelFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0E6DEBAC246FB96C82232 /* NovelFallback.swift */; };
 		4778ACC38E334D9CA95E7C64 /* ModuleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3601B23628D14C71BAF76B1F /* ModuleSpec.swift */; };
 		5491BBF45AEC424D915C8848 /* SoraEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A4BD12E17C4A5AA5FE9D35 /* SoraEngineTests.swift */; };
 		7222485F2DCBAA2C00CABE2D /* DownloadModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7222485D2DCBAA2C00CABE2D /* DownloadModels.swift */; };
@@ -137,9 +137,10 @@
 		7591F6C91D1F4D17BE93466B /* JSExecutionMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A746FD3A8497586850B50 /* JSExecutionMode.swift */; };
 		985F59AD305CB02E00DC6006 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 13ABCDEF3E0002790048B7DE /* SwiftSoup */; };
 		ADBA66B539C54863A162B24D /* JSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9B4E2E55E431EA6096513 /* JSBridge.swift */; };
+		CCE115659AC44276A5D3C28E /* GlassDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366345F84A054F5F90BA5B57 /* GlassDesign.swift */; };
 		D0095082A58548BBB6F4A597 /* SoraModuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8FC42B96E4DBDAC0002B3 /* SoraModuleProtocol.swift */; };
-		2BA49E5BF47B4DB59781FF81 /* NovelFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0E6DEBAC246FB96C82232 /* NovelFallback.swift */; };
 		ED87CB0FFEBB4D9F8A7B04B3 /* SoraJSEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A70DCA819AF47E297338F6C /* SoraJSEngine.swift */; };
+		0A8D0ECD12FE4A12A0830E01 /* ModuleCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEEFA8EFFA842768DE84A17 /* ModuleCacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,7 +174,6 @@
 		04536F722E04BA5600A11248 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
 		04536F752E04BA6900A11248 /* ChapterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterCell.swift; sourceTree = "<group>"; };
 		0457C5942DE7712A000AFBD9 /* DeviceScaleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceScaleModifier.swift; sourceTree = "<group>"; };
-		366345F84A054F5F90BA5B57 /* GlassDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassDesign.swift; sourceTree = "<group>"; };
 		0457C5992DE78267000AFBD9 /* BookmarkGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGridItemView.swift; sourceTree = "<group>"; };
 		0457C59A2DE78267000AFBD9 /* BookmarkGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkGridView.swift; sourceTree = "<group>"; };
 		0457C59B2DE78267000AFBD9 /* BookmarkLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkLink.swift; sourceTree = "<group>"; };
@@ -269,7 +269,9 @@
 		1EDA48F32DFAC374002A4EC3 /* TMDBMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMatchView.swift; sourceTree = "<group>"; };
 		1EF5C3A82DB988D70032BF07 /* CommunityLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityLib.swift; sourceTree = "<group>"; };
 		3601B23628D14C71BAF76B1F /* ModuleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleSpec.swift; sourceTree = "<group>"; };
+		366345F84A054F5F90BA5B57 /* GlassDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassDesign.swift; sourceTree = "<group>"; };
 		4A70DCA819AF47E297338F6C /* SoraJSEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoraJSEngine.swift; sourceTree = "<group>"; };
+		55B0E6DEBAC246FB96C82232 /* NovelFallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelFallback.swift; sourceTree = "<group>"; };
 		7222485D2DCBAA2C00CABE2D /* DownloadModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadModels.swift; sourceTree = "<group>"; };
 		7222485E2DCBAA2C00CABE2D /* M3U8StreamExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3U8StreamExtractor.swift; sourceTree = "<group>"; };
 		722248612DCBAA4700CABE2D /* JSController-HeaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSController-HeaderManager.swift"; sourceTree = "<group>"; };
@@ -285,7 +287,7 @@
 		D8C9B4E2E55E431EA6096513 /* JSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSBridge.swift; sourceTree = "<group>"; };
 		DC4A746FD3A8497586850B50 /* JSExecutionMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSExecutionMode.swift; sourceTree = "<group>"; };
 		DDE8FC42B96E4DBDAC0002B3 /* SoraModuleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoraModuleProtocol.swift; sourceTree = "<group>"; };
-		55B0E6DEBAC246FB96C82232 /* NovelFallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelFallback.swift; sourceTree = "<group>"; };
+		1EEEFA8EFFA842768DE84A17 /* ModuleCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +308,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CA38A477E364C96A2946774 /* Sulfur in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +694,8 @@
 				133D7C862D2BE2640075467E /* Extensions */,
 				13103E8C2D58E037000F0673 /* SkeletonCells */,
 				72443C832DC8046500A61321 /* DownloadUtils */,
-			);
+			
+				79E10D2227BA4E449100C120 /* ModuleCache */,);
 			path = "Utlis & Misc";
 			sourceTree = "<group>";
 		};
@@ -721,12 +723,22 @@
 				139935652D468C450065CEFF /* ModuleManager.swift */,
 				1EF5C3A82DB988D70032BF07 /* CommunityLib.swift */,
 				3601B23628D14C71BAF76B1F /* ModuleSpec.swift */,
+				
 				132C590E30067E590049A742 /* ModuleSettings.swift */,
 				132C591030067EAF0049A742 /* ModuleSettingsView.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		79E10D2227BA4E449100C120 /* ModuleCache */ = {
+			isa = PBXGroup;
+			children = (
+				1EEEFA8EFFA842768DE84A17 /* ModuleCacheManager.swift */,
+			);
+			path = ModuleCache;
+			sourceTree = "<group>";
+		};
+		
 		133D7C8A2D2BE2640075467E /* JSLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -1003,7 +1015,8 @@
 				13367ECD2DF70698009CB33F /* NukeUI */,
 				13530BDE2E0002790048B7DE /* SoraCore */,
 				13ABCDEF3E0002790048B7DE /* SwiftSoup */,
-			);
+			
+				6A149AA2CFF24095A93EC308 /* GRDB */,);
 			productName = Sora;
 			productReference = 133D7C6A2D2BE2500075467E /* Sulfur.app */;
 			productType = "com.apple.product-type.application";
@@ -1075,7 +1088,8 @@
 				13367ECA2DF70698009CB33F /* XCRemoteSwiftPackageReference "Nuke" */,
 				13530BDD2E0002790048B7DE /* XCRemoteSwiftPackageReference "SoraCore" */,
 				13ABCDEF2E0002790048B7DE /* XCRemoteSwiftPackageReference "SwiftSoup" */,
-			);
+			
+				D8A31386DBFD4E6AA9E32B5F /* XCRemoteSwiftPackageReference "GRDB" */,);
 			productRefGroup = 133D7C6B2D2BE2500075467E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1234,7 +1248,8 @@
 				0457C59D2DE78267000AFBD9 /* BookmarkGridView.swift in Sources */,
 				0457C59E2DE78267000AFBD9 /* BookmarkLink.swift in Sources */,
 				0457C59F2DE78267000AFBD9 /* BookmarkGridItemView.swift in Sources */,
-			);
+							0A8D0ECD12FE4A12A0830E01 /* ModuleCacheManager.swift in Sources */,
+);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BACF07ECE6C64FC9B77928FA /* Sources */ = {
@@ -1242,9 +1257,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5491BBF45AEC424D915C8848 /* SoraEngineTests.swift in Sources */,
-				6A2C03AD316042839BC7B244 /* ModuleCacheManagerTests.swift in Sources */,
-				6A2C03AD316042839BC7B244 /* ModuleCacheManagerTests.swift in Sources */,
-				E19D61B43B048C12F7DF6529 /* ModuleCacheManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1530,6 +1542,7 @@
 				DEVELOPMENT_TEAM = USF65A4WGS;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1549,16 +1562,9 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
-			SWIFT_EMIT_LOC_STRINGS = YES;
-			SWIFT_VERSION = 5.0;
-			TARGETED_DEVICE_FAMILY = "1,2";
-			ENABLE_TESTABILITY = YES;
-			SWIFT_EMIT_LOC_STRINGS = YES;
-			SWIFT_VERSION = 5.0;
-			TARGETED_DEVICE_FAMILY = "1,2";
-			ENABLE_TESTABILITY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 x86_64";
@@ -1579,9 +1585,12 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Sora/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sora/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Sora;
@@ -1606,10 +1615,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				DEFINES_MODULE = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				DEFINES_MODULE = YES;
-				ENABLE_TESTABILITY = YES;
 			};
 			name = Debug;
 		};
@@ -1624,7 +1630,9 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Sora/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1651,7 +1659,6 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				DEFINES_MODULE = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1662,23 +1669,16 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.cranci.sulfur.SoraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
-			SWIFT_EMIT_LOC_STRINGS = YES;
-			SWIFT_VERSION = 5.0;
-			TARGETED_DEVICE_FAMILY = "1,2";
-			ENABLE_TESTABILITY = YES;
-			SWIFT_EMIT_LOC_STRINGS = YES;
-			SWIFT_VERSION = 5.0;
-			TARGETED_DEVICE_FAMILY = "1,2";
-			ENABLE_TESTABILITY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				DEFINES_MODULE = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sulfur.app/Sulfur";
 			};
@@ -1690,6 +1690,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
@@ -1697,7 +1698,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				DEFINES_MODULE = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sulfur.app/Sulfur";
 			};
@@ -1776,6 +1776,7 @@
 				kind = branch;
 			};
 		};
+		D8A31386DBFD4E6AA9E32B5F /* XCRemoteSwiftPackageReference "GRDB" */ = {isa = XCRemoteSwiftPackageReference; repositoryURL = "https://github.com/groue/GRDB.swift.git"; requirement = {kind = "upToNextMajorVersion"; minimumVersion = "6.0.0"; }; };
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1808,6 +1809,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 13ABCDEF2E0002790048B7DE /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
+		};
+		6A149AA2CFF24095A93EC308 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8A31386DBFD4E6AA9E32B5F /* XCRemoteSwiftPackageReference "GRDB" */;
+			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

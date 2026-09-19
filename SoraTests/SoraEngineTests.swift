@@ -14,6 +14,7 @@ final class SoraEngineTests: XCTestCase {
     func testModuleMetadataDecoding() throws {
         let json = """
         {
+            "id": "12345678-1234-1234-1234-123456789012",
             "sourceName": "TestSource",
             "author": {
                 "name": "TestAuthor",
@@ -49,6 +50,7 @@ final class SoraEngineTests: XCTestCase {
     func testModuleMetadataDecodingWithDefaults() throws {
         let json = """
         {
+            "id": "87654321-4321-4321-4321-210987654321",
             "sourceName": "MinimalSource",
             "author": {
                 "name": "Author",
@@ -119,6 +121,7 @@ final class SoraEngineTests: XCTestCase {
     func testStreamTypeDecoding() throws {
         let json = """
         {
+            "id": "11111111-1111-1111-1111-111111111111",
             "sourceName": "Test",
             "author": {"name": "A", "icon": "i"},
             "iconUrl": "i",
@@ -140,6 +143,7 @@ final class SoraEngineTests: XCTestCase {
     func testQualityDecoding() throws {
         let json = """
         {
+            "id": "22222222-2222-2222-2222-222222222222",
             "sourceName": "Test",
             "author": {"name": "A", "icon": "i"},
             "iconUrl": "i",
@@ -674,12 +678,8 @@ final class ModuleCacheManagerTests: XCTestCase {
         // This test would need a mock HTTP server to fully test
         // For now, we just verify the cache miss behavior
         let module = try makeModule(script: "function search() { return '[]'; }", version: "2.0")
-        do {
-            _ = try await cacheManager.getCachedModule(id: module.id)
-            XCTFail("Expected cache miss")
-        } catch ModuleCacheManager.CacheError.moduleNotFound {
-            // Expected
-        }
+        let result = try await cacheManager.getCachedModule(id: module.id)
+        XCTAssertNil(result)
     }
 
     func testCacheInvalidation() async throws {
@@ -688,15 +688,12 @@ final class ModuleCacheManagerTests: XCTestCase {
         let module = try makeModule(script: script, version: "1.0")
 
         try await cacheManager.saveModuleToCache(id: module.id, metadata: module.metadata, script: script)
-        XCTAssertNotNil(try await cacheManager.getCachedModule(id: module.id))
+        let cached = try await cacheManager.getCachedModule(id: module.id)
+        XCTAssertNotNil(cached)
 
         try await cacheManager.invalidateModule(id: module.id)
-        do {
-            _ = try await cacheManager.getCachedModule(id: module.id)
-            XCTFail("Expected module not found after invalidation")
-        } catch ModuleCacheManager.CacheError.moduleNotFound {
-            // Expected
-        }
+        let result = try await cacheManager.getCachedModule(id: module.id)
+        XCTAssertNil(result)
     }
 
     func testCacheSizeLimitEnforcement() async throws {
@@ -710,7 +707,7 @@ final class ModuleCacheManagerTests: XCTestCase {
             try await cacheManager.saveModuleToCache(id: module.id, metadata: module.metadata, script: script)
         }
 
-        let (count, totalSize) = try await cacheManager.getCacheStats()
-        XCTAssertLessThanOrEqual(totalSize, 100 * 1024 * 1024 + 1_000_000) // ~100MB + buffer
+        let stats = try await cacheManager.getCacheStats()
+        XCTAssertLessThanOrEqual(stats.totalSizeBytes, 100 * 1024 * 1024 + 1_000_000) // ~100MB + buffer
     }
 }

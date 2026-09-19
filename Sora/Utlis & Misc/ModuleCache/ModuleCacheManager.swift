@@ -22,7 +22,6 @@ public final class ModuleCacheManager {
     private let maxCacheSizeBytes: Int64 = 100 * 1024 * 1024 // 100 MB default
 
     private init?() {
-        let fileManager = FileManager.default
         guard let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else {
             return nil
         }
@@ -121,7 +120,7 @@ public final class ModuleCacheManager {
             let scriptPath: String = row["script_path"]
             let metadataJson: String = row["metadata_json"]
 
-            let scriptURL = cacheDirectory.appendingPathComponent(scriptPath)
+            let scriptURL = self.cacheDirectory.appendingPathComponent(scriptPath)
             guard let script = try? String(contentsOf: scriptURL, encoding: .utf8) else {
                 throw CacheError.ioError(NSError(domain: "ModuleCache", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to read script file"]))
             }
@@ -168,7 +167,7 @@ public final class ModuleCacheManager {
 
     /// Validate remote version against cache using conditional GET (ETag/Last-Modified)
     public func validateRemoteVersion(_ metadata: ModuleMetadata) async throws -> CacheValidationResult {
-        guard let scriptUrl = URL(string: metadata.scriptUrl) else {
+        guard let _ = URL(string: metadata.scriptUrl) else {
             throw CacheError.invalidMetadata
         }
 
@@ -230,7 +229,6 @@ public final class ModuleCacheManager {
 
     /// Enforce cache size limit by removing least recently used entries
     private func enforceCacheSizeLimit() async throws {
-        let fileManager = FileManager.default
         var totalSize: Int64 = 0
         var entries: [(url: URL, size: Int64, lastAccess: Date)] = []
 
