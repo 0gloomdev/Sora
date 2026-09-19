@@ -124,4 +124,167 @@ final class ModuleCacheManagerTests: XCTestCase {
             }
         }
     }
+    
+    func testTorrentioExtraction() async throws {
+        let cacheManager = ModuleCacheManager.shared!
+        
+        // Create a mock torrentio module
+        let torrentioScript = """
+        // Torrentio mock module for testing
+        async function extractMedia(params) {
+            const { url, type, title, year, season, episode } = params;
+            
+            // Mock response simulating Torrentio's structure
+            return {
+                streams: [
+                    {
+                        url: "https://torrentio.org/stream/movie/tt1234567?quality=1080p",
+                        title: "Test Movie 1080p",
+                        quality: "1080p",
+                        source: "torrentio",
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: {
+                                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15"
+                            }
+                        }
+                    },
+                    {
+                        url: "https://torrentio.org/stream/movie/tt1234567?quality=4k",
+                        title: "Test Movie 4K",
+                        quality: "4K",
+                        source: "torrentio",
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: {
+                                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15"
+                            }
+                        }
+                    }
+                ]
+            };
+        }
+        """;
+        
+        // Create a test module
+        let moduleId = UUID();
+        let torrentioMetadata = ModuleMetadata(
+            id: UUID(),
+            sourceName: "Torrentio",
+            author: Author(name: "Torrentio Team", icon: "https://torrentio.org/icon.png"),
+            iconUrl: "https://torrentio.org/icon.png",
+            version: "1.0.0",
+            language: "en",
+            baseUrl: "https://torrentio.org",
+            streamType: .hls,
+            quality: .p1080,
+            searchBaseUrl: "https://torrentio.org/search?q=%s",
+            scriptUrl: "https://torrentio.org/module.js",
+            asyncJS: true,
+            streamAsyncJS: true,
+            softsub: false,
+            multiStream: true,
+            multiSubs: true,
+            type: .movies,
+            novel: false
+        );
+        
+        let module = ScrapingModule(
+            id: UUID(),
+            metadata: ModuleMetadata(
+                id: UUID(),
+                sourceName: "Torrentio",
+                author: Author(name: "Torrentio Team", icon: "https://torrentio.org/icon.png"),
+                iconUrl: "https://torrentio.org/icon.png",
+                version: "1.0.0",
+                language: "en",
+                baseUrl: "https://torrentio.org",
+                streamType: .hls,
+                quality: .p1080,
+                searchBaseUrl: "https://torrentio.org/search?q=%s",
+                scriptUrl: "https://torrentio.org/module.js",
+                asyncJS: true,
+                streamAsyncJS: true,
+                softsub: false,
+                multiStream: true,
+                multiSubs: true,
+                type: .movies,
+                novel: false
+            ),
+            localPath: "torrentio.js",
+            metadataUrl: "https://torrentio.org/manifest.json"
+        );
+        
+        // Save the mock script to cache
+        let cacheManager = ModuleCacheManager.shared!;
+        try await cacheManager.saveModuleToCache(
+            id: UUID(),
+            metadata: ModuleMetadata(
+                id: UUID(),
+                sourceName: "Torrentio",
+                author: Author(name: "Torrentio Team", icon: "https://torrentio.org/icon.png"),
+                iconUrl: "https://torrentio.org/icon.png",
+                version: "1.0.0",
+                language: "en",
+                baseUrl: "https://torrentio.org",
+                streamType: .hls,
+                quality: .p1080,
+                searchBaseUrl: "https://torrentio.org/search?q=%s",
+                scriptUrl: "https://torrentio.org/module.js",
+                asyncJS: true,
+                streamAsyncJS: true,
+                softsub: false,
+                multiStream: true,
+                multiSubs: true,
+                type: .movies,
+                novel: false
+            ),
+            script: """
+            // Torrentio mock module for testing
+            async function extractMedia(params) {
+                const { url, type, title, year, season, episode } = params;
+                
+                // Mock response simulating Torrentio's structure
+                return {
+                    streams: [
+                        {
+                            url: "https://torrentio.org/stream/movie/tt1234567?quality=1080p",
+                            title: "Test Movie 1080p",
+                            quality: "1080p",
+                            source: "torrentio",
+                            behaviorHints: {
+                                notWebReady: true,
+                                proxyHeaders: {
+                                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15"
+                                }
+                            }
+                        },
+                        {
+                            url: "https://torrentio.org/stream/movie/tt1234567?quality=4k",
+                            title: "Test Movie 4K",
+                            quality: "4K",
+                            source: "torrentio",
+                            behaviorHints: {
+                                notWebReady: true,
+                                proxyHeaders: {
+                                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15"
+                                }
+                            }
+                        }
+                    ]
+                };
+            }
+        """"));
+        
+        // Test extraction
+        let result = try await cacheManager.getCachedModule(id: module.id)!;
+        let (scriptContent, metadata) = result;
+        
+        XCTAssertTrue(scriptContent.contains("extractMedia"));
+        XCTAssertTrue(scriptContent.contains("torrentio"));
+        XCTAssertTrue(scriptContent.contains("1080p"));
+        XCTAssertTrue(scriptContent.contains("4K"));
+        XCTAssertEqual(metadata.sourceName, "Torrentio");
+        XCTAssertEqual(metadata.streamType, .hls);
+    }
 }
